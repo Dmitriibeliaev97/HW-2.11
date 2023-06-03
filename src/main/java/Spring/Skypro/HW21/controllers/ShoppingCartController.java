@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Set;
+
 @RestController
-@RequestMapping("/store/order/")
+@RequestMapping("/store/order")
 public class ShoppingCartController {
     private final ShoppingCartService shoppingCartService;
 
@@ -17,14 +20,14 @@ public class ShoppingCartController {
     }
 
     @GetMapping("/add")
-    public ShoppingCart addProduct(@RequestParam("productId") ShoppingCart productId) {
+    public Set<Integer> addProduct(@RequestParam List<Integer> productId) {
         return shoppingCartService.addProduct(productId);
     }
 
 
     @GetMapping("/get")
-    public ShoppingCart getProduct(@RequestParam("productId") ShoppingCart productId) {
-        return (ShoppingCart) shoppingCartService.getProduct(productId);
+    public Set<Integer> getProduct() {
+        return shoppingCartService.getProduct();
     }
 
 }

@@ -3,10 +3,11 @@ package Spring.Skypro.HW21.services;
 import Spring.Skypro.HW21.model.ShoppingCart;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ShoppingCartService {
-    ShoppingCart addProduct(ShoppingCart productId);
+    Set<Integer> addProduct(List<Integer> productId);
 
-    List<ShoppingCart> getProduct(ShoppingCart productId);
+    Set<Integer> getProduct();
 
 }
